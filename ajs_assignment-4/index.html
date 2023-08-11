@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        button {
+            margin: 5px 10px 10px 10px;
+        }
+    </style>
+    <script>
+        let sum = 0;
+        function addItem() {
+        let itemName = document.getElementById("item-name-input").value;
+        let itemPrice = document.getElementById("item-price-input").value;
+
+
+        let tbody = document.getElementById('tbody');
+
+        let tr = document.createElement('tr');
+
+
+        let nameData = document.createElement('td')
+        nameData.setAttribute("data-ns-test", "item-name");
+
+
+        let priceData = document.createElement('td')
+        priceData.setAttribute('data-ns-test', 'item-price')
+
+        nameData.textContent = itemName;
+        priceData.textContent = itemPrice;
+
+        tr.append(nameData);
+        tr.append(priceData);
+
+        tbody.append(tr);
+        document.getElementById("item-name-input").value = '';
+        document.getElementById("item-price-input").value = '';
+        let grandTotal = document.querySelector('[data-ns-test=grandTotal]')
+        let prices = document.querySelectorAll('[data-ns-test=item-price]');
+
+        sum += parseInt(itemPrice);
+        grandTotal.textContent = sum;
+        }
+
+    </script>
+</head>
+<body>
+    <p>Item</p> <input   id="item-name-input" type="text">
+    <p>Price</p> <input  id="item-price-input" type="number"><br>
+    <button onclick="addItem()" >AddItem</button> <br>
+    <table border="1">
+        <thead></thead>
+        <tbody id="tbody">
+    
+        </tbody>
+    </table>
+    <tr><span>Grand Total: </span><span data-ns-test="grandTotal">0</span></tr>
+</body>
+</html>

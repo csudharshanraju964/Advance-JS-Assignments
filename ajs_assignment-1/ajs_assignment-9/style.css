@@ -1,0 +1,15 @@
+table,tr,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table{
+    margin-top: 30px;
+}
+span {
+    display: block;
+}
+button {
+    margin-top: 10px;
+    background-color :cyan;
+    border-radius: 10%;
+}

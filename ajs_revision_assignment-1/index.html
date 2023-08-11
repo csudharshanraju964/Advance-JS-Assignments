@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="stopwatch-container">
+        <h1>Stopwatch </h1>
+        <div id="stopwatch">00:00:00
+        </div>
+        <button onclick="start(true)" id="start-btn">Start
+        </button>
+        <button onclick="pause()" id="pauseButton">Pause
+        </button>
+        <button onclick="stop()">Stop</button>
+       
+    </div>
+    <script>
+        var stopwatch = document.getElementById("stopwatch");
+        var startBtn = document.getElementById("start-btn");
+        var pauseButton = document.getElementById("pauseBtton");
+        var timeoutId = null;
+        var hr = 0;
+        var sec = 0;
+        var min = 0;
+        /* function to start stopwatch */
+        function start(flag) {
+            if (flag) {
+                startBtn.disabled = true;
+            }
+            timeoutId = setTimeout(function () {
+                hr = parseInt(hr);
+                min = parseInt(min);
+                sec = parseInt(sec);
+                sec++;
+                if (sec == 60) {
+                    min = min + 1;
+                    sec = 0;
+                }
+                if (min === 60) {
+                    hr = hr + 1;
+                    min = 0;
+                }
+                stopwatch.innerHTML = hr + ":" + min + ':' + sec;
+                // calling start() function recursivly to continue stopwatch
+                start();
+            } , 1000);
+        }
+        /* function to pause stopwatch */
+        function pause() {
+            clearTimeout(timeoutId);
+            startBtn.disabled = false;
+        }
+        /* function to reset stopwatch */
+        function stop() {
+            hr = 0;
+            sec = 0;
+            min = 0;
+            clearTimeout(timeoutId);
+            stopwatch.innerHTML = '00:00:00';
+            startBtn.disabled = false;
+        }
+    </script>
+
+</body>
+
+</html>

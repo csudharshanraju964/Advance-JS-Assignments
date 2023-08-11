@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping  cart</title>
+    <script>
+        function addItem(){
+            let itemName = document.getElementById("item-name-input").value;
+            let itemPrice = document.getElementById("item-price-input").value;
+            let tbody = document.getElementById("tbody");
+            let tr = document.createElement('tr');
+
+            
+            
+
+        }
+    </script>
+</head>
+<body>
+    <p>Item</p><input type="text" name="item" id="item-name-input">
+    <p>Price</p><input type="number" name="price" id="item-price-input"><br>
+    <button onclick="addItem()">AddItem</button><br>
+    <table>
+        <thead></thead>
+        <tbody id="tbody">
+            <tr></tr>
+            <tr><span data-ns-test="grandTotal">Grand Total :</span><span>0</span></tr>
+        </tbody>
+    </table>
+</body>
+</html>
